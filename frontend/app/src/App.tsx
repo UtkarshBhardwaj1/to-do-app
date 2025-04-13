@@ -1,35 +1,42 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from "react";
+import TodoList from "./components/TodoList";
+import { Box, Typography } from "@mui/material"; // Material UI components
 
-function App() {
-  const [count, setCount] = useState(0)
-
+const App: React.FC = () => {
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    <Box
+      sx={{
+        backgroundColor: "#f0f2f5",
+        minHeight: "100vh",
+        minWidth: "193vh",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "flex-start",
+        paddingTop: "4rem",
+        fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
+      }}
+    >
+      <Box
+        sx={{
+          backgroundColor: "#ffffff",
+          padding: "2rem",
+          borderRadius: "12px",
+          width: "100%",
+          maxWidth: "600px",
+          boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)",
+        }}
+      >
+        <Typography variant="h4" sx={{ marginBottom: "0.25rem", color: "#2c3e50" }}>
+          📝 My Todo App
+        </Typography>
+        <Typography variant="subtitle1" sx={{ marginBottom: "1.5rem", color: "#7f8c8d" }}>
+          Stay organized, stay productive.
+        </Typography>
 
-export default App
+        <TodoList />
+      </Box>
+    </Box>
+  );
+};
+
+export default App;
